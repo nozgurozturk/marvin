@@ -1,3 +1,3 @@
-module github.com/nozguozturk/marvin
+module github.com/nozgurozturk/marvin
 
 go 1.15

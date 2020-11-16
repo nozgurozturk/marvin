@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/nozguozturk/marvin/client"
+	"github.com/nozgurozturk/marvin/client"
 	"net/url"
 	"strconv"
 	"strings"

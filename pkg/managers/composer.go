@@ -3,7 +3,7 @@ package managers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nozgurozturk/marvin/client"
+	"github.com/nozgurozturk/marvin/pkg/client"
 	"strings"
 )
 

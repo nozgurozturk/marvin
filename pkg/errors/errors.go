@@ -12,7 +12,7 @@ func BadRequest(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusBadRequest,
-		Error:   "bad_request",
+		Error:   http.StatusText(http.StatusBadRequest),
 	}
 }
 
@@ -20,7 +20,7 @@ func UnprocessableEntity(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusUnprocessableEntity,
-		Error:   "unprocessable_entity",
+		Error:   http.StatusText(http.StatusUnprocessableEntity),
 	}
 }
 
@@ -28,7 +28,7 @@ func InternalServer(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusInternalServerError,
-		Error:   "server_error",
+		Error:   http.StatusText(http.StatusInternalServerError),
 	}
 }
 
@@ -36,7 +36,7 @@ func NotFound(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusNotFound,
-		Error:   "not_found",
+		Error:   http.StatusText(http.StatusNotFound),
 	}
 }
 
@@ -44,7 +44,7 @@ func AlreadyExist(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusConflict,
-		Error:   "already_exist",
+		Error:   http.StatusText(http.StatusConflict),
 	}
 }
 
@@ -52,7 +52,7 @@ func Unauthorized(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusUnauthorized,
-		Error:   "unauthorized",
+		Error:   http.StatusText(http.StatusUnauthorized),
 	}
 }
 
@@ -60,6 +60,6 @@ func Forbidden(message string) *AppError {
 	return &AppError{
 		Message: message,
 		Status:  http.StatusForbidden,
-		Error:   "forbidden",
+		Error:   http.StatusText(http.StatusForbidden),
 	}
 }

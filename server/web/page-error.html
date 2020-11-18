@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Marvin | {{.ErrorStatus}}</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            padding: 24px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+            "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+            "Helvetica Neue", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .logo {
+            height: 48px;
+            object-fit: contain;
+        }
+        .container {
+            max-width: 640px;
+            width: 100%;
+            padding: 0.4rem 24px;
+            margin-top: 48px;
+            text-align: left;
+        }
+        .error-wrapper {
+            width: min-content;
+            display: flex;
+            flex-direction: column;
+            margin-bottom:120px;
+        }
+        .error-code {
+            margin:0;
+            font-size: 6rem;
+        }
+        .error-exp {
+            margin-left: auto;
+            font-size: 0.4rem;
+        }
+        .error {
+            color: tomato;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <svg viewBox="0 0 1164 333" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_i)">
+            <circle cx="96" cy="199" r="96" fill="#F2F2F2"/>
+        </g>
+        <g filter="url(#filter1_i)">
+            <path d="M40 249L21.8135 228.75L58.1865 226.5L40 249Z" fill="#27AE60"/>
+        </g>
+        <path d="M55.9806 227.638L39.9599 247.459L23.9393 229.62L55.9806 227.638Z" stroke="#333333" stroke-width="2"/>
+        <g filter="url(#filter2_i)">
+            <path d="M152 249L133.813 226.5L170.187 228.75L152 249Z" fill="#27AE60"/>
+        </g>
+        <path d="M168.061 229.62L152.04 247.459L136.019 227.638L168.061 229.62Z" stroke="#333333" stroke-width="2"/>
+        <path d="M7 229C76.5135 223.636 115.487 223.582 185 229" stroke="#333333" stroke-width="2"/>
+        <path d="M246.464 130.608H272.384V147.6C275.072 134.352 290.72 127.728 319.328 127.728C342.56 127.728 357.056 134.064 362.816 146.736C364.544 140.592 369.728 135.888 378.368 132.624C387.2 129.36 397.952 127.728 410.624 127.728C427.904 127.728 440.096 130.992 447.2 137.52C454.304 143.856 457.856 153.936 457.856 167.76V270H431.936V169.488C431.936 165.84 431.648 162.864 431.072 160.56C430.496 158.256 429.344 155.952 427.616 153.648C423.776 148.848 415.232 146.448 401.984 146.448C391.808 146.448 384.224 147.12 379.232 148.464C374.24 149.808 370.784 152.112 368.864 155.376C367.136 158.64 366.272 163.344 366.272 169.488V270H340.352V169.488C340.352 165.84 340.064 162.864 339.488 160.56C338.912 158.256 337.76 155.952 336.032 153.648C332.192 148.848 323.744 146.448 310.688 146.448C300.128 146.448 292.16 147.12 286.784 148.464C281.408 149.808 277.664 152.112 275.552 155.376C273.44 158.448 272.384 163.152 272.384 169.488V270H246.464V130.608ZM557.115 272.88C543.867 272.88 533.595 271.632 526.299 269.136C519.195 266.64 514.011 262.224 510.747 255.888C507.675 249.552 506.139 240.432 506.139 228.528C506.139 217.968 507.579 209.808 510.459 204.048C513.531 198.096 518.619 193.872 525.723 191.376C533.019 188.88 543.291 187.632 556.539 187.632H598.299V165.456C598.299 160.272 597.243 156.336 595.131 153.648C593.211 150.768 589.851 148.752 585.051 147.6C580.443 146.448 573.627 145.872 564.603 145.872C550.203 145.872 534.267 147.024 516.795 149.328V130.32C535.803 128.592 552.987 127.728 568.347 127.728C584.475 127.728 596.379 128.976 604.059 131.472C611.739 133.776 617.019 137.904 619.899 143.856C622.779 149.808 624.219 159.024 624.219 171.504V270H599.163V256.752C597.051 267.504 583.035 272.88 557.115 272.88ZM561.435 255.888C570.843 255.888 578.811 255.216 585.339 253.872C593.979 252.144 598.299 248.112 598.299 241.776V203.76H558.267C550.011 203.76 544.059 204.432 540.411 205.776C536.763 206.928 534.363 209.232 533.211 212.688C532.059 216.144 531.483 221.712 531.483 229.392C531.483 236.304 532.155 241.68 533.499 245.52C534.843 249.168 537.243 251.856 540.699 253.584C544.155 255.12 549.339 255.888 556.251 255.888H561.435ZM680.692 130.608H705.172V153.36C705.172 148.944 707.092 144.816 710.932 140.976C714.772 136.944 719.668 133.776 725.62 131.472C731.572 128.976 737.428 127.728 743.188 127.728H755.86V149.904H741.46C729.172 149.904 720.244 151.536 714.676 154.8C709.3 157.872 706.612 163.536 706.612 171.792V270H680.692V130.608ZM772.444 130.608H799.804L838.396 247.536H839.836L877.276 130.608H902.332L853.66 270H822.556L772.444 130.608ZM938.013 80.208H963.933V107.28H938.013V80.208ZM938.013 130.608H963.933V270H938.013V130.608ZM1020.41 130.608H1046.33V147.6C1049.02 134.352 1064.28 127.728 1092.12 127.728C1109.98 127.728 1122.46 130.992 1129.56 137.52C1136.86 143.856 1140.5 153.936 1140.5 167.76V270H1114.58V169.2C1114.58 165.552 1114.3 162.576 1113.72 160.272C1113.14 157.968 1111.99 155.664 1110.26 153.36C1106.42 148.56 1097.88 146.16 1084.63 146.16C1074.46 146.16 1066.58 146.928 1061.02 148.464C1055.64 149.808 1051.8 152.112 1049.5 155.376C1047.38 158.64 1046.33 163.248 1046.33 169.2V270H1020.41V130.608Z" fill="#333333"/>
+        <defs>
+            <filter id="filter0_i" x="0" y="103" width="217" height="217" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="25" dy="25"/>
+                <feGaussianBlur stdDeviation="34.5"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+            </filter>
+            <filter id="filter1_i" x="21.8134" y="226.5" width="40.3731" height="25.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="8" dy="3"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+            </filter>
+            <filter id="filter2_i" x="129.813" y="226.5" width="40.3731" height="25.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="-8" dy="3"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+            </filter>
+        </defs>
+    </svg>
+</div>
+<div class="container">
+    <div class="error-wrapper">
+        <h1 class="error-code">{{.ErrorStatus}}</h1>
+        <p class="error-exp">{{.Error}}</p>
+    </div>
+    <p class="quotes"></p>
+    <p class="error"><small>{{.ErrorMessage}}</small></p>
+</div>
+</body>
+<script>
+    const quotes = [
+        "Life? Don't talk to me about life.",
+        "I think you ought to know I'm feeling very depressed.",
+        "You think you've got problems? What are you supposed to do if you are a manically depressed robot? No, don't try to answer that. I'm fifty thousand times more intelligent than you and even I don't know the answer. It gives me a headache just trying to think down to your level.",
+    ];
+
+    const q = document.querySelector(".quotes");
+    q.textContent = quotes[Math.floor(Math.random() * 3)];
+</script>
+</html>

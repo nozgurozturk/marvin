@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f2f2f2;
+      }
+      #bodyTable {
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+      #emailBody {
+        padding: 12px 24px;
+        background-color: white;
+        border-radius: 12px;
+        text-align: left;
+      }
+      .logo {
+        height: 48px;
+        object-fit: contain;
+      }
+      mark {
+        background-color: transparent;
+        color: #27ae60;
+        font-weight: bold;
+      }
+      .repo-link {
+        text-decoration: underline;
+        color: #27ae60;
+      }
+
+      .verify-link {
+        color: white;
+        background-color: #27ae60;
+        border-radius: 12px;
+        font-size: 21px;
+        margin: 24px auto;
+        padding: 8px 12px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      height="100%"
+      width="100%"
+      id="bodyTable"
+    >
+      <tr>
+        <td align="center" valign="top">
+          <table
+            border="0"
+            cellpadding="20"
+            cellspacing="0"
+            width="600"
+            id="emailContainer"
+          >
+            <tr>
+              <td align="center" valign="top">
+                <table
+                  border="0"
+                  cellpadding="20"
+                  cellspacing="0"
+                  width="100%"
+                  id="emailHeader"
+                >
+                  <tr>
+                    <td align="center" valign="top">
+                      <img
+                      class="logo"
+                      src="https://i.ibb.co/fCfFyHp/marvin-logo.png"
+                    />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <table
+                  border="0"
+                  cellpadding="20"
+                  cellspacing="0"
+                  width="100%"
+                  id="emailBody"
+                >
+                  <tr>
+                    <td valign="top">
+                      <p>Hello</p>
+                      <p>
+                        Welcome to marvin outdated package notification service.
+                      </p>
+                      <p>
+                        One more step to be notified if
+                        <a
+                          class="repo-link"
+                          href="{{.RepoLink}}"
+                          >{{.RepoName}}</a
+                        >
+                        has outdated packages
+                      </p>
+                      <p>
+                        Please click on the button below to confirm your e-mail address.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <a class="verify-link" href="{{.Link}}">
+                        Confirm email address
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <table
+                  border="0"
+                  cellpadding="20"
+                  cellspacing="0"
+                  width="100%"
+                  id="emailFooter"
+                >
+                  <tr>
+                    <td valign="top">
+                      <p>
+                        <small>
+                          You can change notification preferences, after verify
+                          your email.
+                        </small>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -20,7 +20,7 @@ func NewRepository(client *redis.Client) *Repository {
 func (r *Repository) CreateAuth(token *entity.Token) error {
 
 	expires := time.Unix(token.Expires, 0)
-	now := time.Now()
+	now := time.Now().UTC()
 
 	ctx, _ := context.WithTimeout(context.Background(), 5*time.Second)
 

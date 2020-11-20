@@ -24,10 +24,9 @@ func NewRepository(db *mongo.Database) *Repository {
 // Creates new git repository
 func (r *Repository) Create(repo *entity.Repo) (*entity.Repo, error) {
 
-	repo.CreatedAt = time.Now()
-
 	ctx, _ := context.WithTimeout(context.Background(), 5*time.Second)
 
+	repo.CreatedAt = time.Now().UTC()
 	result, err := r.Collection.InsertOne(ctx, &repo)
 	if err != nil {
 		return nil, err

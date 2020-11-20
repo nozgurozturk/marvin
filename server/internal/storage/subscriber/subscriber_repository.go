@@ -27,6 +27,7 @@ func (r *Repository) Create(sub *entity.Subscriber) (*entity.Subscriber, error) 
 
 	ctx, _ := context.WithTimeout(context.Background(), 5*time.Second)
 
+	sub.CreatedAt = time.Now().UTC()
 	result, err := r.Collection.InsertOne(ctx, &sub)
 	if err != nil {
 		return nil, err

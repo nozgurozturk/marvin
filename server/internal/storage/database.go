@@ -34,7 +34,11 @@ func MongoConnect() (*mongo.Database, error) {
 	// connectionString := fmt.Sprintf("mongodb+srv://%s:%s@%s/%s?%s", cnf.Username, cnf.Password, cnf.Host, cnf.DBName, cnf.Query)
 
 	// If you use local development
-	connectionString := fmt.Sprintf("mongodb://%s/%s", cnf.Host, cnf.DBName)
+	// connectionString := fmt.Sprintf("mongodb://%s/%s", cnf.Host, cnf.DBName)
+
+	// If you use local development with auth
+	connectionString := fmt.Sprintf("mongodb://%s:%s@%s/%s?%s", cnf.Username, cnf.Password, cnf.Host, cnf.DBName, cnf.Query)
+
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(connectionString))
 
 	if err != nil {

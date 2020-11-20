@@ -24,8 +24,8 @@ func MongoConnect() (*mongo.Database, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	// connectionString := fmt.Sprintf("mongodb://%s:%s@%s/%s?%s", cnf.Username, cnf.Password, cnf.Host, cnf.DBName, cnf.Query)
 	connectionString := fmt.Sprintf("mongodb://%s/%s", cnf.Host, cnf.DBName)
+
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(connectionString))
 
 	if err != nil {

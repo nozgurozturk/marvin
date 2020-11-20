@@ -10,12 +10,9 @@ services:
     restart: always
     environment:
       - GO_ENV=development
-      - MONGO_DB_USERNAME=marvin
-      - MONGO_DB_PASSWORD=mongo-pass
       - MONGO_DB_HOST=mongo
       - MONGO_DB_PORT=27017
       - MONGO_DB_NAME=marvin
-      - MONGO_DB_QUERY=retryWrites=true&w=majority
       - REDIS_DB_ADDRESS=redis:6379
       - REDIS_DB=0 
     volumes:
@@ -37,18 +34,15 @@ services:
     restart: always
     environment:
       - GO_ENV=development
-      - MONGO_DB_USERNAME=marvin
-      - MONGO_DB_PASSWORD=mongo-pass
       - MONGO_DB_HOST=mongo
       - MONGO_DB_PORT=27017
       - MONGO_DB_NAME=marvin
-      - MONGO_DB_QUERY=retryWrites=true&w=majority
     volumes:
       - appdata:/app/marvin-notifier
     depends_on:
       - mongo
     ports:
-      - 8088:8088
+      - 8082:8082
     networks:
       - backend
 
@@ -56,10 +50,7 @@ services:
     container_name: marvin-mongo
     image: mongo:bionic
     restart: on-failure
-    command: mongod --auth
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=marvin
-      - MONGO_INITDB_ROOT_PASSWORD=mongo-pass
       - MONGO_INITDB_DATABASE=marvin
     volumes:
       - mongodbdata:/data/db

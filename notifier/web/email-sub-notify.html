@@ -37,6 +37,11 @@
       .repo {
         border-bottom: 1px solid gray;
       }
+      .file{
+        font-weight: lighter;
+        color:gray;
+        font-size: 0.8rem;
+      }
       .repo p span {
           display: inline-block;
           width: 148px;
@@ -114,22 +119,21 @@
                 >
                   <tr>
                     <td valign="top">
-                      <h2>
-                        <a class="repo-link" href="{{.RepoLink}}">mercury-ui</a>
+                      <h1>
+                        <a class="repo-link" href="{{.RepoLink}}">{{.RepoName}}</a>
                         has
                         <span class="repo-count"
                           >{{.OutdatedPackageCount}}</span
                         >
                         outdated packages
-                      </h2>
-                      <h3>List of outdated packages</h3>
+                      </h1>
                     </td>
                   </tr>
                   {{ range .PackageList }}
                     <tr>
                       <td valign="top">
                         <div class="repo">
-                          <h3>{{.Name}}</h3>
+                          <h3>{{.Name}} <small class="file">in {{.File}}</small></h3>
                           <p>
                             <span>repository version:</span>
                             <span class="outdated">{{.Version.Current}}</span>
@@ -159,7 +163,7 @@
                       <p>
                         <small>
                           You will receive this email {{.NotifyFrequency}} at
-                          {{.NotifyTime}} if repository has outdated packages
+                          {{.NotifyTime}} UTC if repository has outdated packages
                         </small>
                       </p>
                       <p>

@@ -227,6 +227,11 @@ func refresh(authService service.AuthService, userService service.UserService) f
 			return c.Status(parseError.Status).JSON(parseError)
 		}
 
+		if requestBody.RefreshToken == "" {
+			err := errors.BadRequest("Refresh token is required")
+			return c.Status(err.Status).JSON(err)
+		}
+
 		token, err := app.ValidateToken(requestBody.RefreshToken, "Refresh")
 		claims := token.Claims.(jwt.MapClaims)
 		uuid, _ := claims["uuid"].(string)

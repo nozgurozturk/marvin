@@ -8,7 +8,7 @@ ENV GO111MODULE=on \
     GOARCH=amd64
 
 # Move to working directory /app
-WORKDIR /app
+WORKDIR /app-notifier
 
 # Copy and download dependency using go mod
 COPY go.mod .
@@ -22,4 +22,4 @@ COPY . .
 RUN go build -o main ./cmd
 
 # Command to run when starting the container
-CMD ["/app/main"]
+CMD ["/app-notifier/main"]

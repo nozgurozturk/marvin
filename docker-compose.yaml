@@ -1,0 +1,91 @@
+version: '3.6'
+services:
+
+  marvin-server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: marvin-server
+    image: marvin/server
+    restart: always
+    environment:
+      - GO_ENV=development
+      - MONGO_DB_USERNAME=marvin
+      - MONGO_DB_PASSWORD=mongo-pass
+      - MONGO_DB_HOST=mongo
+      - MONGO_DB_PORT=27017
+      - MONGO_DB_NAME=marvin
+      - MONGO_DB_QUERY=retryWrites=true&w=majority
+      - REDIS_DB_ADDRESS=redis:6379
+      - REDIS_DB=0 
+    volumes:
+      - appdata:/app/marvin-server
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - 8081:8081
+    networks:
+      - backend
+
+  marvin-notifier:
+    build:
+      context: ./notifier
+      dockerfile: Dockerfile
+    container_name: marvin-notifier
+    image: marvin/notifier
+    restart: always
+    environment:
+      - GO_ENV=development
+      - MONGO_DB_USERNAME=marvin
+      - MONGO_DB_PASSWORD=mongo-pass
+      - MONGO_DB_HOST=mongo
+      - MONGO_DB_PORT=27017
+      - MONGO_DB_NAME=marvin
+      - MONGO_DB_QUERY=retryWrites=true&w=majority
+    volumes:
+      - appdata:/app/marvin-notifier
+    depends_on:
+      - mongo
+    ports:
+      - 8088:8088
+    networks:
+      - backend
+
+  mongo:
+    container_name: marvin-mongo
+    image: mongo:bionic
+    restart: on-failure
+    command: mongod --auth
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=marvin
+      - MONGO_INITDB_ROOT_PASSWORD=mongo-pass
+      - MONGO_INITDB_DATABASE=marvin
+    volumes:
+      - mongodbdata:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - backend
+  
+  redis:
+    container_name: marvin-redis
+    image: redis:alpine
+    volumes:
+      - redisdata:/data
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  appdata:
+    driver: local
+  mongodbdata:
+    driver: local
+  redisdata:
+    driver: local

@@ -137,7 +137,13 @@ func findAllSubscriber(s service.SubscriberService) fiber.Handler {
 		if err != nil {
 			return c.Status(err.Status).JSON(err)
 		}
-		return c.Status(http.StatusOK).JSON(found)
+
+		response := entity.ToResponse(
+			"You successfully add a new subscriber.",
+			http.StatusCreated,
+			found,
+		)
+		return c.Status(response.Status).JSON(response)
 	}
 }
 
@@ -368,7 +374,7 @@ func unsubscribeSub(s service.SubscriberService) fiber.Handler {
 			return c.Status(err.Status).JSON(err)
 		}
 
-		return c.Status(http.StatusOK).SendString(":(")
+		return c.Status(http.StatusOK).Render("page-sub-unsubscribe", fiber.Map{})
 	}
 }
 

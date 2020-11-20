@@ -4,6 +4,7 @@ import (
 	swagger "github.com/arsmn/fiber-swagger/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html"
+	"github.com/nozgurozturk/marvin/pkg/errors"
 	"github.com/nozgurozturk/marvin/server/internal/api"
 	"github.com/nozgurozturk/marvin/server/internal/service"
 	"github.com/nozgurozturk/marvin/server/internal/storage"
@@ -56,4 +57,15 @@ func (s *Server) initializeRouters() {
 
 	// Documentation
 	s.Router.Get("/docs/*", swagger.Handler)
+
+	// 404
+
+	s.Router.Use(func(c *fiber.Ctx) error {
+		err := errors.NotFound("Page is not found")
+		return c.Status(err.Status).Render("page-error", fiber.Map{
+			"ErrorStatus":  err.Status,
+			"ErrorMessage": err.Message,
+			"Error":        err.Error,
+		})
+	})
 }

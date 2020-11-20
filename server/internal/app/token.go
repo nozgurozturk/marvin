@@ -58,7 +58,7 @@ func CreateSubToken(s *entity.SubscriberDTO) (*entity.SubToken, *errors.AppError
 	cnf := config.Get().HTTP
 	sub := &entity.SubToken{}
 
-	sub.Expires = time.Now().Add(time.Hour * time.Duration(cnf.SubExpire)).Unix()
+	sub.Expires = time.Now().UTC().Add(time.Hour * time.Duration(cnf.SubExpire)).Unix()
 	sub.Uuid = uuid.New().String()
 	sub.RepoID = s.RepoID
 	sub.Email = s.Email
@@ -108,7 +108,7 @@ func CreateToken(u *entity.UserDTO) (*entity.TokenDetails, *errors.AppError) {
 
 	cnf := config.Get().HTTP
 	rt := &entity.Token{}
-	rt.Expires = time.Now().Add(time.Hour * time.Duration(cnf.RefreshExpire)).Unix()
+	rt.Expires = time.Now().UTC().Add(time.Hour * time.Duration(cnf.RefreshExpire)).Unix()
 	rt.Uuid = uniqueID
 	rt.UserID = u.ID
 	rt.Email = u.Email
@@ -130,7 +130,7 @@ func CreateToken(u *entity.UserDTO) (*entity.TokenDetails, *errors.AppError) {
 	}
 
 	at := &entity.Token{}
-	at.Expires = time.Now().Add(time.Minute * time.Duration(cnf.AccessExpire)).Unix()
+	at.Expires = time.Now().UTC().Add(time.Minute * time.Duration(cnf.AccessExpire)).Unix()
 	at.Uuid = uniqueID
 	at.UserID = u.ID
 	at.Email = u.Email

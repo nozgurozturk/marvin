@@ -1,0 +1,38 @@
+{
+  "name": "marvin-cli",
+  "version": "0.0.1",
+  "description": "CLI tool for marvin",
+  "license": "MIT",
+  "scripts": {
+    "marvin": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "bin": {
+    "marvin": "dist/src/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/dotenv": "^8.2.0",
+    "@types/got": "^9.6.11",
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^14.14.7",
+    "@types/ora": "^3.2.0",
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "got": "^11.8.0",
+    "inquirer": "^7.3.3",
+    "ora": "^5.1.0",
+    "prettier": "^2.1.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  }
+}

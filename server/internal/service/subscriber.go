@@ -48,7 +48,7 @@ func (s *subService) Create(email string, repoID string) (*entity.SubscriberDTO,
 			hour: current hour, minute: current minute
 		}
 	*/
-	now := time.Now()
+	now := time.Now().UTC()
 	subscriber := &entity.SubscriberDTO{
 		Email:  email,
 		RepoID: repoID,

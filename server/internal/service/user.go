@@ -4,7 +4,6 @@ import (
 	"github.com/nozgurozturk/marvin/pkg/errors"
 	"github.com/nozgurozturk/marvin/server/entity"
 	"github.com/nozgurozturk/marvin/server/internal/storage"
-	"time"
 )
 
 type UserService interface {
@@ -45,13 +44,9 @@ func (s *userService) Create(userDTO *entity.UserDTO) (*entity.UserDTO, *errors.
 		return nil, errors.InternalServer(err.Error())
 	}
 
-	// creates user
-	newUser := entity.ToUser(userDTO)
-	newUser.Password = string(hashedPassword)
-	newUser.UpdatedAt = time.Now()
-	newUser.CreatedAt = time.Now()
+	userDTO.Password = string(hashedPassword)
 
-	createdUser, err := s.repository.Create(newUser)
+	createdUser, err := s.repository.Create(entity.ToUser(userDTO))
 
 	if err != nil {
 		return nil, errors.InternalServer(err.Error())
@@ -89,10 +84,7 @@ func (s *userService) FindByID(userID string) (*entity.UserDTO, *errors.AppError
 
 func (s *userService) Update(userDTO *entity.UserDTO) (*entity.UserDTO, *errors.AppError) {
 
-	user := entity.ToUser(userDTO)
-	user.UpdatedAt = time.Now()
-
-	updated, err := s.repository.Update(user)
+	updated, err := s.repository.Update(entity.ToUser(userDTO))
 	if err != nil {
 		return nil, errors.InternalServer(err.Error())
 	}

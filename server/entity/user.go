@@ -14,8 +14,7 @@ type User struct {
 	Email       string             `json:"email" bson:"email"`
 	IsConfirmed bool               `json:"isConfirmed" bson:"isConfirmed"`
 	Password    string             `json:"password" bson:"password"`
-	CreatedAt   time.Time          `json:"createdAt" bson:"created_at"`
-	UpdatedAt   time.Time          `json:"updatedAt" bson:"updated_at"`
+	CreatedAt   time.Time          `json:"createdAt" bson:"createdAt"`
 }
 
 type UserDTO struct {

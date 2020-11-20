@@ -35,9 +35,10 @@ func main() {
 
 	s := storage.New(mongo, redis)
 	r := router.New(s)
-	// go app.Check(r.Service.Subscriber())
+
 	err = r.Router.Listen(cnf.HTTP.Port)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }

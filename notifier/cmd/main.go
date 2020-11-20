@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/nozgurozturk/marvin/notifier/internal/app"
 	"github.com/nozgurozturk/marvin/notifier/internal/config"
 	"github.com/nozgurozturk/marvin/notifier/internal/service"
@@ -15,11 +16,12 @@ func main() {
 		return
 	}
 
-
 	s := storage.New(mongo)
 
 	repoService := service.NewRepoService(s.Repos())
 	subscriberService := service.NewSubscriberService(s.Subscribers())
+
+	fmt.Println("Notifier start on 8082")
 	var wg sync.WaitGroup
 	wg.Add(1)
 	go app.SendNotification(subscriberService, repoService)

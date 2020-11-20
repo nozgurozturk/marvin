@@ -15,7 +15,7 @@ require (
 	github.com/gofiber/template v1.6.4
 	github.com/google/uuid v1.1.2
 	github.com/joho/godotenv v1.3.0
-	github.com/nozgurozturk/marvin/pkg v0.0.0-20201116224929-29ac15cfc91b
+	github.com/nozgurozturk/marvin/pkg v0.0.0-20201118230847-2a78a9cfc3b0
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/swaggo/swag v1.6.9
 	github.com/urfave/cli/v2 v2.3.0 // indirect
